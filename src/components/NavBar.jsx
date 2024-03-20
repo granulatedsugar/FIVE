@@ -6,6 +6,7 @@ import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 // Icons
 import { Icon } from "@iconify/react";
+
 // Components
 import { Container, Nav, Navbar } from "react-bootstrap";
 // Images
@@ -57,9 +58,9 @@ function ThemeToggle() {
       />
       <div>
         {theme === "light" ? (
-          <Icon icon="game-icons:sunflower" />
+          <Icon icon="fluent-emoji:sun-behind-small-cloud" />
         ) : (
-          <Icon icon="game-icons:moon" />
+          <Icon icon="streamline-emojis:new-moon" />
         )}
       </div>
     </StyledSwitch>
@@ -85,11 +86,11 @@ export default function NavBar({ Logo }) {
       { id: "2R", name: "All Projects", route: "/All-Projects" },
     ],
     to: [
-      { id: "1T", name: "Home", to: "Home" },
-      { id: "2T", name: "About Me", to: "About" },
-      { id: "3T", name: "Skills", to: "Skills" },
-      { id: "4T", name: "Projects", to: "Projects" },
-      { id: "5T", name: "Contact", to: "Contact" },
+      { id: "1T", name: "FIVE", to: "Home" },
+      { id: "2T", name: "ABOUT", to: "About" },
+      { id: "3T", name: "DOCS", to: "Skills" },
+      { id: "4T", name: "DEPENDENCY", to: "Projects" },
+      { id: "5T", name: "CONTACT", to: "Contact" },
     ],
   };
 

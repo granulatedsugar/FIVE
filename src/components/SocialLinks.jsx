@@ -5,7 +5,7 @@ import styled from "styled-components";
 // Data
 import { Blog } from "../data";
 // Icons
-import { Icon } from '@iconify/react';
+import { Icon } from "@iconify/react";
 
 const StyledSocialLinks = styled.div`
   a {
@@ -14,7 +14,9 @@ const StyledSocialLinks = styled.div`
 `;
 
 export default function SocialLinks() {
-  const { blog, html_url } = useSelector(selectData);
+  // const { blog, html_url } = useSelector(selectData);
+  const html_url =
+    "https://github.com/granulatedsugar/MotorPH-Enterprise-System";
 
   return (
     <StyledSocialLinks>
@@ -22,14 +24,11 @@ export default function SocialLinks() {
         href={html_url}
         aria-label="Check out my GitHub profile."
         className="link-icons"
+        target="_blank"
+        rel="noreferrer"
       >
         <Icon icon="icomoon-free:github" />
       </a>
-      {blog && (
-        <a href={blog} aria-label="External link" className="link-icons">
-          {Blog}
-        </a>
-      )}
     </StyledSocialLinks>
   );
 }

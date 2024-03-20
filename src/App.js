@@ -18,12 +18,14 @@ import { Loading } from "./components/globalStyledComponents";
 import ScrollToTop from "./components/ScrollToTop";
 import GlobalStyles from "./components/GlobalStyles";
 import NavBar from "./components/NavBar";
+import Navbar from "./components/Navbar/Navbar";
 // Pages
 import Home from "./pages/Home";
 import AllProjects from "./pages/AllProjects";
 import NotFound from "./pages/NotFound";
+import { ChakraProvider } from "@chakra-ui/react";
 
-const darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+const lightMode = window.matchMedia("(prefers-color-scheme: light)").matches;
 const themes = {
   light: {
     name: "light",
@@ -46,7 +48,7 @@ export default function App() {
   React.useEffect(
     function () {
       const updateTheme = () =>
-        darkMode ? setTheme("dark") : setTheme("light");
+        lightMode ? setTheme("dark") : setTheme("light");
       updateTheme();
       dispatch(fetchGitHubInfo());
       dispatch(fetchGitHubReops());
@@ -80,20 +82,23 @@ export default function App() {
     );
   } else {
     return (
-      <HashRouter>
-        <ThemeProvider theme={themes[theme]}>
-          <ScrollToTop />
-          <GlobalStyles />
-          <Element name={"Home"} id="home">
-            <NavBar Logo={navLogo} />
-          </Element>
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route path="/All-Projects" element={<AllProjects />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </ThemeProvider>
-      </HashRouter>
+      <ChakraProvider>
+        <HashRouter>
+          <ThemeProvider theme={themes[theme]}>
+            <ScrollToTop />
+            <GlobalStyles />
+            <Element name={"Home"} id="home">
+              {/* <NavBar Logo={navLogo} /> */}
+              <Navbar Logo={navLogo} />
+            </Element>
+            <Routes>
+              <Route exact path="/" element={<Home />} />
+              <Route path="/All-Projects" element={<AllProjects />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </ThemeProvider>
+        </HashRouter>
+      </ChakraProvider>
     );
   }
 }

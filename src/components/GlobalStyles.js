@@ -60,7 +60,8 @@ a:hover {
 }
 
 .title {
-    font-family: "Permanent Marker";
+    font-family: "K2D";
+    font-size: 10rem;
 }
 
 .card {
